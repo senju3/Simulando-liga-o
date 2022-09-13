@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +13,49 @@
     <main>
         <div class="celular">
             <div class="eu">
-                <div class="menu">
+                <div class="menu minu">
                     <img src="./eu.jpg" alt="">
                 </div>
-
-                <div class="atalho">
+                
+                <div class="atalho atilho">
                     <ul>
-                        <li>telefone</li>
+                        <li class="tel_eu">telefone</li>
                         <li>insta</li>
                         <li>camera</li>
                         <li>email</li>
                     </ul>
+                </div>
+                <div class="tecladun">
+                    <div class="resul">
+                        <button class="apagar" onclick="backSpace ('')">x</button>
+                        <p class="resulta"></p>
+                    </div>
+                    
+                    <table>
+                        <thead></thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td><button onclick="insert ('7')">7</button></td>
+                                <td><button onclick="insert ('8')">8</button></td>
+                                <td><button onclick="insert ('9')">9</button></td>
+                            </tr>
+                            <tr>
+                                <td><button onclick="insert ('4')">4</button></td>
+                                <td><button onclick="insert ('5')">5</button></td>
+                                <td><button onclick="insert ('6')">6</button></td>
+                            </tr>
+                            <tr>
+                                <td><button onclick="insert ('1')">1</button></td>
+                                <td><button onclick="insert ('2')">2</button></td>
+                                <td><button onclick="insert ('3')">3</button></td>
+                            </tr>
+                        </tbody>                           
+                    </table>
+                    <div class="botoes">
+                        <button class="atendimento verde">A</button>
+                        <button class="atendimento vermelho">X</button>
+                    </div>
                 </div>
             </div>
             
