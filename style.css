@@ -123,40 +123,34 @@ table td button {
     width: 60px;
     border-radius: 100%;
     cursor: pointer;
-}
-.verde {
     background-color: green;
 }
-.vermelho {
-    background-color: red;
-}
+
 /*   js    */
-.ligar {   
-    width: 250px;
-    height: 400px;
-    background-color: rgba(0, 0, 0, 0.808);
-    border-radius: 30px;
+.ligando {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.753);
 }
-.abc {
-    width: 80px;
-    height: 100px;
-    border: 1px 1px red;
-    text-align: center;
-    cursor: pointer;
+.desligar {
+    background-color: red;
 }
-.tecla {
-    height: 300px;
+.solicitacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.753);
 }
-.buts {
-    width: 80px;
-    height: 100px;
-    border: 1px 1px red;
-    text-align: center;
-    cursor: pointer;
-}
-.result {
-    height: 100px;
+.simNao {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: red;
+    width: 250px;
 }
