@@ -126,6 +126,28 @@ table td button {
     background-color: green;
 }
 
+.chamando {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 30px;
+    width: 250px;
+    height: 400px;
+}
+.ocult {
+    display: none;
+}
+.call {
+    color: white;
+}
+.contato {
+    color: white;
+}
+.encerrar {
+
+}
 /*   js    */
 .ligando {
     display: flex;
@@ -138,6 +160,9 @@ table td button {
 }
 .desligar {
     background-color: red;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 .solicitacao {
     display: flex;

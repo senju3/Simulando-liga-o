@@ -11,6 +11,23 @@ const teuMenu = document.querySelector('.tu')
 const tuaTela = document.querySelector('.menutu')
 const teuAtalho = document.querySelector('.atulho')
 
+
+
+const naoQueroMais = (desligar, a, b) => {
+    meuMenu.removeChild(a)
+    teuMenu.removeChild(b)
+    meuMenu.appendChild(menuRemovi)
+    meuMenu.appendChild(atalhoRemovi)
+
+    teuMenu.appendChild(tuaTela)
+    teuMenu.appendChild(teuAtalho)
+}
+
+
+
+
+
+
 /*função tela inicial de ligação */
 const telaDeLigacao = () => {
     /*Removi as divs da tela inicial do celular */
@@ -37,6 +54,7 @@ function backSpace () {
 const chamando = () => {
     meuMenu.removeChild(teclado)
 
+
     const div = document.createElement('div')
     div.classList.add('ligando')
     meuMenu.appendChild(div)
@@ -55,7 +73,12 @@ const chamando = () => {
     desligar.innerText = 'X'
     desligar.classList.add('desligar')
     div.appendChild(desligar)
+    
+    desligar.addEventListener('click', () => naoQueroMais(desligar, div, solicitacao))
+    
 
+
+    /************  2° CELULAR **************/
     teuMenu.removeChild(tuaTela)
     teuMenu.removeChild(teuAtalho)
 
@@ -77,17 +100,17 @@ const chamando = () => {
     simNao.classList.add('simNao')
     solicitacao.appendChild(simNao)
 
-    const atender = document.createElement("button")
+    const atender = document.createElement('button')
     atender.innerText = 'A'
     atender.classList.add('atender')
     simNao.appendChild(atender)
 
     
-    const recusar = document.querySelector('button')
-    recusar.innerText = 'X'
+    const recusar = document.createElement('button')
+    recusar.innerText = 'X' 
     recusar.classList.add('recusar')
     simNao.appendChild(recusar)
 
     console.log('tudo certo meu chapa')
 }
-ligar.addEventListener('click', chamando)
+ligar.addEventListener('click', chamando);
