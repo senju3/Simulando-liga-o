@@ -12,7 +12,7 @@ const tuaTela = document.querySelector('.menutu')
 const teuAtalho = document.querySelector('.atulho')
 
 
-
+/*Função de encerrar o chamado*/
 const naoQueroMais = (desligar, a, b) => {
     meuMenu.removeChild(a)
     teuMenu.removeChild(b)
@@ -23,10 +23,33 @@ const naoQueroMais = (desligar, a, b) => {
     teuMenu.appendChild(teuAtalho)
 }
 
+/*Função de aceitar a ligção*/
+const aceito = (atender, a, b) => {
+    meuMenu.removeChild(a)
+    teuMenu.removeChild(b)
 
+    
 
+    const divLigacao = document.createElement('div')
+    divLigacao.classList.add('divLigacao')
+    meuMenu.appendChild(divLigacao)
+    teuMenu.appendChild(divLigacao)
 
+    const cron = document.createElement('h1')
+    cron.classList.add('cron')
+    cron.innerText = "00:00:00"
+    divLigacao.appendChild(cron)
 
+    const contato = document.createElement('p')
+    contato.classList.add('contatoLigacao')
+    contato.innerText = results.innerText
+    divLigacao.appendChild(contato)
+
+    const desligar = document.createElement('button')
+    desligar.innerText = 'X'
+    divLigacao.appendChild(desligar)
+
+}
 
 /*função tela inicial de ligação */
 const telaDeLigacao = () => {
@@ -40,6 +63,8 @@ const telaDeLigacao = () => {
 }
     meuTel.addEventListener('click', telaDeLigacao)
 
+
+
 /*Função de inserir o número de acordo com a tecla para o usuário */
 function insert (valor) {
     results.innerHTML += valor
@@ -49,6 +74,8 @@ function backSpace () {
     let deletOneForOne = results.innerHTML
     results.innerHTML = deletOneForOne.substring(0, deletOneForOne.length -1)
 }
+
+
 
 /*Função tela de chamando*/
 const chamando = () => {
@@ -104,7 +131,7 @@ const chamando = () => {
     atender.innerText = 'A'
     atender.classList.add('atender')
     simNao.appendChild(atender)
-
+    atender.addEventListener('click', () => aceito(atender, div, solicitacao))
     
     const recusar = document.createElement('button')
     recusar.innerText = 'X' 
