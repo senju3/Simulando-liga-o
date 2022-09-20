@@ -11,47 +11,37 @@ const teuMenu = document.querySelector('.tu')
 const tuaTela = document.querySelector('.menutu')
 const teuAtalho = document.querySelector('.atulho')
 
+let hh = 00;
+let mm = 00;
+let ss = 00;
+let tempo = 1000;
+let crono;
+const formato = (hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss)
 
-/*Função de encerrar o chamado*/
-const naoQueroMais = (desligar, a, b) => {
-    meuMenu.removeChild(a)
-    teuMenu.removeChild(b)
-    meuMenu.appendChild(menuRemovi)
-    meuMenu.appendChild(atalhoRemovi)
 
-    teuMenu.appendChild(tuaTela)
-    teuMenu.appendChild(teuAtalho)
+function start() {
+    crono = setInterval(timer(), tempo)
 }
 
-/*Função de aceitar a ligção*/
-const aceito = (atender, a, b) => {
-    meuMenu.removeChild(a)
-    teuMenu.removeChild(b)
+function timer () {
+    ss++;
 
-    
+    if (ss == 60) {
+        ss = 0;
+        mm++;
+        if (mm == 60) {
+            mm = 0;
+            hh++;
+        }
 
-    const divLigacao = document.createElement('div')
-    divLigacao.classList.add('divLigacao')
-    meuMenu.appendChild(divLigacao)
-    teuMenu.appendChild(divLigacao)
-
-    const cron = document.createElement('h1')
-    cron.classList.add('cron')
-    cron.innerText = "00:00:00"
-    divLigacao.appendChild(cron)
-
-    const contato = document.createElement('p')
-    contato.classList.add('contatoLigacao')
-    contato.innerText = results.innerText
-    divLigacao.appendChild(contato)
-
-    const desligar = document.createElement('button')
-    desligar.innerText = 'X'
-    divLigacao.appendChild(desligar)
+        
+    }
+}
+function stopi() {
 
 }
 
-/*função tela inicial de ligação */
+                                               /*função tela inicial de ligação */
 const telaDeLigacao = () => {
     /*Removi as divs da tela inicial do celular */
     meuMenu.removeChild(menuRemovi)
@@ -65,7 +55,7 @@ const telaDeLigacao = () => {
 
 
 
-/*Função de inserir o número de acordo com a tecla para o usuário */
+                                        /*Função de inserir o número de acordo com a tecla para o usuário */
 function insert (valor) {
     results.innerHTML += valor
 }
@@ -77,7 +67,7 @@ function backSpace () {
 
 
 
-/*Função tela de chamando*/
+                                                  /*Função tela de chamando*/
 const chamando = () => {
     meuMenu.removeChild(teclado)
 
@@ -129,6 +119,7 @@ const chamando = () => {
 
     const atender = document.createElement('button')
     atender.innerText = 'A'
+    atender.setAttribute('onclick', 'start()')
     atender.classList.add('atender')
     simNao.appendChild(atender)
     atender.addEventListener('click', () => aceito(atender, div, solicitacao))
@@ -141,3 +132,68 @@ const chamando = () => {
     console.log('tudo certo meu chapa')
 }
 ligar.addEventListener('click', chamando);
+
+
+
+
+                                              /*Função de encerrar o chamado*/
+const naoQueroMais = (desligar, a, b) => {
+    meuMenu.removeChild(a)
+    teuMenu.removeChild(b)
+    meuMenu.appendChild(menuRemovi)
+    meuMenu.appendChild(atalhoRemovi)
+
+    teuMenu.appendChild(tuaTela)
+    teuMenu.appendChild(teuAtalho)
+}
+
+/*Função de aceitar a ligção*/
+const aceito = (atender, a, b) => {
+    meuMenu.removeChild(a)
+    teuMenu.removeChild(b)
+    
+
+    /***********No meu celular*********/
+    const divLigacao = document.createElement('div')
+    divLigacao.classList.add('divLigacao')
+    meuMenu.appendChild(divLigacao)
+
+    const cron = document.createElement('h1')
+    cron.classList.add('cron')
+    cron.setAttribute('id', 'counter')
+    cron.innerText = "00:00:00"
+    divLigacao.appendChild(cron)
+    document.getElementById('counter').innerText = formato;
+
+    const contato = document.createElement('p')
+    contato.classList.add('contatoLigacao')
+    contato.innerText = results.innerText
+    divLigacao.appendChild(contato)
+
+    const desligar = document.createElement('button')
+    desligar.classList.add('desligar')
+    desligar.innerText = 'X'
+    divLigacao.appendChild(desligar)
+
+
+    /******No teu celular*****/
+    const divLigacaoR = document.createElement('div')
+    divLigacaoR.classList.add('divLigacaoR')
+    teuMenu.appendChild(divLigacaoR)
+
+    const cronR = document.createElement('h1')
+    cronR.classList.add('cronR')
+    cronR.innerText = "00:00:00"
+    divLigacaoR.appendChild(cronR)
+
+    const contatoR = document.createElement('p')
+    contatoR.classList.add('contatoLigacaoR')
+    contatoR.innerText = results.innerText
+    divLigacaoR.appendChild(contatoR)
+
+    const desligarR = document.createElement('button')
+    desligarR.classList.add('desligarR')
+    desligarR.innerText = 'X'
+    divLigacaoR.appendChild(desligarR)
+}
+
